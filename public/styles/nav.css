@@ -1,6 +1,4 @@
 #nav-bar {
-  font-family: 'Bungee', cursive;
-  font-size: larger;
   height: 120px;
   padding: 1.5em;
   display: flex;
@@ -11,6 +9,10 @@
 
 }
 
+nav span {
+  font-family: 'Bungee', cursive;
+  font-size: larger;
+}
 #navButton {
   font-family: 'Source Sans Pro', sans-serif;
   background-color: Transparent;
