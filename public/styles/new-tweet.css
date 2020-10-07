@@ -11,6 +11,11 @@
   padding: 0.5em;
 }
 
+.red {
+  color: #f56a4e;
+  font-weight: 700;
+}
+
 .new-tweet h2 {
   margin-top: 0;
   border-bottom: 4px solid;
