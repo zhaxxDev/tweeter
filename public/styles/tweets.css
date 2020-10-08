@@ -7,11 +7,11 @@
   width: 50%;
   flex-direction: column;
   background-color: papayawhip;
-    border-radius: 5px;
+  padding: 1em;
+  border-radius: 5px;
   border-color: #000000;
   border-style: solid;
-  border-width: 10px;
-  padding: 1em;
+  border-width: 2px;
 }
 
 .all-tweets .nameData {
@@ -36,4 +36,11 @@
 .nameData img {
   height: 100px;
   border-radius: 50%;
+}
+
+.all-tweets:hover {
+  border-radius: 5px;
+  border-color: #000000;
+  border-style: solid;
+  border-width: 10px;
 }
