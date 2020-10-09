@@ -4,9 +4,9 @@
   margin-top: 30px;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 70%;
   flex-direction: column;
-  background-color: papayawhip;
+  background-color: rgb(252, 242, 225);
   padding: 1em;
   border-radius: 5px;
   border-color: #000000;
@@ -14,33 +14,39 @@
   border-width: 2px;
 }
 
+.tweet {
+  border: solid 4px grey;
+  width: 70%;
+  border-radius: 8px;
+  margin-top: 30px;
+  background-color: papayawhip;
+}
+
 .all-tweets .nameData {
   display: flex;
   align-items: center;
-  position: relative;
-  right:220px;
+ 
 }
 .all-tweets .nameData i {
-  position: relative;
-  left: 400px;
+  position: absolute;
+  left: 60%;
 }
 
-#tweetText{
+#tweetText:hover {
   border-bottom: 5px solid black;
 }
 
-.all-tweets .tweetData {
-  margin: -15px;
+#tweetText {
+  border-bottom: 5px solid grey;
 }
 
 .nameData img {
-  height: 100px;
-  border-radius: 50%;
+  height: 100%;
 }
 
-.all-tweets:hover {
+.tweet:hover {
   border-radius: 5px;
   border-color: #000000;
   border-style: solid;
-  border-width: 10px;
+  border-width: 4px;
 }

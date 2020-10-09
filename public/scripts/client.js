@@ -28,28 +28,53 @@ const data = [
   }
 ]
 
+function getTheCurrentTime(date) {
+  var currentDate = Date.now();
+  var howLongAgoSeconds = (currentDate - date) / 1000 / 60;
+  var howLongAgoMinutes = (currentDate - date) / 1000 / 60;
+  var howLongAgoHours = (currentDate - date) / 1000 / 60 / 60;
+  if (howLongAgoMinutes < 1) {
+    return `${Math.floor(howLongAgoSeconds)} seconds ago`;
+  } else if (howLongAgoMinutes > 1 && howLongAgoMinutes < 60) {
+    return `${Math.floor(howLongAgoMinutes)} minutes ago`;
+  } else if (howLongAgoMinutes > 60 && howLongAgoHours < 24) {
+    return `${Math.floor(howLongAgoHours)} hours ago`;
+  } else if (howLongAgoHours > 24) {
+    return `${Math.floor(howLongAgoHours / 24)} days ago`;
+  }
+}
+
 function createTweetElement (tweetObj) {
   $tweet = $("<article>").addClass("tweet");
-  let html = ` <div class="nameData">
-  <img src=${tweetObj.user.avatars.small} alt="user-avatar" />
-  <p>${tweetObj.user.name}</p>
-  <i>${tweetObj.user.handle}</i>
-</div>
-<div class="tweetData">
-  <p id="tweetText">${tweetObj.content.text}</p>
-  <p>${getTheCurrentTime(tweetObj.created_at)}</p>
-</div>`;
+  let html = 
+  ` 
+    <header class="nameData">
+      <img src=${tweetObj.user.avatars} alt="user-avatar" />
+      <p>${tweetObj.user.name}</p>
+      <i>${tweetObj.user.handle}</i>
+    </header>
+    <div class="tweetData">
+      <p id="tweetText">${tweetObj.content.text}</p>
+    </div>
+    <footer>  
+      <p><i>${getTheCurrentTime(tweetObj.created_at)}</i></p>
+    </footer>
+  `;
   $tweet = $tweet.append(html);
   return $tweet;
 }
 
 function renderTweets(tweets) {
-  var $html = $('<div></div>');
+  var $html = $(".all-tweets");
+  $html.empty()
   tweets.forEach((tweet)=> {
     var a = createTweetElement(tweet);
     $html.prepend(a);
   })
-  $(".all-tweets").html($html);
+  // $(".all-tweets").html($html);
 }
 
-renderTweets(data);
+$(document).ready(function() {
+  renderTweets(data);
+});
+
