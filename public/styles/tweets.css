@@ -3,7 +3,7 @@
   margin: auto;
   margin-top: 30px;
   align-items: center;
-  width: 70%;
+  width: 100%;
   flex-direction: column;
   background-color: rgb(252, 242, 225);
   padding: 1em;
@@ -60,6 +60,7 @@
 @media only screen and (min-width: 1024px) {
   .container {
     display: flex;
+    justify-content: space-around;
   }
 
   .all-tweets {
