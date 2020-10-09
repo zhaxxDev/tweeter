@@ -46,6 +46,7 @@ function handleComposeSubmit(event) {
       $('#tweet-text').val('');
       $('.counter').html(140);
       loadTweets();
+      $(".new-tweet").slideToggle("slow", function (){});
     });
   }
 }
@@ -123,7 +124,7 @@ $(document).ready(function() {
   loadTweets();
   console.log('loadtweets function invoked successfully');
   $('#compose').on('submit', handleComposeSubmit);
-  $("button").click(function(){
+  $("#navButton").click(function(){
     $(".new-tweet").slideToggle("slow", function (){});
   });
 });
