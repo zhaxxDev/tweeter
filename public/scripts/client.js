@@ -93,8 +93,10 @@ function createTweetElement (tweetObj) {
   let html = 
   ` 
     <header class="nameData">
-      <img src=${tweetObj.user.avatars}/>
-      <p>${tweetObj.user.name}</p>
+      <div>
+        <img src=${tweetObj.user.avatars}/>
+        <p>${tweetObj.user.name}</p>
+      </div>
       <i>${tweetObj.user.handle}</i>
     </header>
     <div class="tweetData">
