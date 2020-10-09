@@ -22,18 +22,15 @@
 }
 
 .all-tweets .nameData {
-  padding: 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 5px;
  
 }
 
 .all-tweets .nameData div {
   display: flex;
-}
-.all-tweets .nameData i {
-  
 }
 
 .tweet footer {
@@ -60,3 +57,12 @@
 .tweet:hover #tweetText {
   border-bottom: 5px solid black;
 }
+@media only screen and (min-width: 1024px) {
+  .container {
+    display: flex;
+  }
+
+  .all-tweets {
+    margin-top: 120px;
+  }
+ }
