@@ -2,7 +2,6 @@
   display: flex;
   margin: auto;
   margin-top: 30px;
-  justify-content: center;
   align-items: center;
   width: 70%;
   flex-direction: column;
@@ -36,7 +35,14 @@
   border-bottom: 5px solid black;
 }
 
+.tweet footer {
+  margin-left: 10px;
+  font-size: 80%;
+}
+
 #tweetText {
+  margin-left: 5px;
+  margin-right: 5px;
   border-bottom: 5px solid grey;
 }
 

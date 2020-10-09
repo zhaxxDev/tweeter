@@ -28,6 +28,40 @@ const data = [
   }
 ]
 
+ 
+function handleComposeSubmit(event) {
+  event.preventDefault();
+  var formDataStr = $(this).serialize();
+  var textAreaContent = $('#tweet-text').val();
+  if(textAreaContent === '') {
+    return alert('Please enter a text');
+  } else if (textAreaContent.length > 140) {
+    return alert("Tweet is too long");
+  } else {
+    $.ajax({
+      url: '/tweets',
+      method: 'POST',
+      data: formDataStr
+    }).done(function(data) {
+      $('#tweet-text').val('');
+      $('.counter').html(140);
+      loadTweets();
+    });
+  }
+}
+
+function loadTweets() {
+  $.ajax({
+    url: `/tweets`,
+    method: 'GET',
+    dataType: "json",
+    success: function (data) {
+      console.log('Success: ', data);
+      renderTweets(data);
+    }
+  });
+}
+
 function getTheCurrentTime(date) {
   var currentDate = Date.now();
   var howLongAgoSeconds = (currentDate - date) / 1000 / 60;
@@ -44,17 +78,26 @@ function getTheCurrentTime(date) {
   }
 }
 
+//to make text not be able to run as html
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
 function createTweetElement (tweetObj) {
   $tweet = $("<article>").addClass("tweet");
+  const safeHTML = `<p id="tweetText">${escape(tweetObj.content.text)}</p>`;
+  console.log(safeHTML)
   let html = 
   ` 
     <header class="nameData">
-      <img src=${tweetObj.user.avatars} alt="user-avatar" />
+      <img src=${tweetObj.user.avatars}/>
       <p>${tweetObj.user.name}</p>
       <i>${tweetObj.user.handle}</i>
     </header>
     <div class="tweetData">
-      <p id="tweetText">${tweetObj.content.text}</p>
+      ${safeHTML}
     </div>
     <footer>  
       <p><i>${getTheCurrentTime(tweetObj.created_at)}</i></p>
@@ -75,6 +118,11 @@ function renderTweets(tweets) {
 }
 
 $(document).ready(function() {
-  renderTweets(data);
+  $(".new-tweet").hide();
+  loadTweets();
+  console.log('loadtweets function invoked successfully');
+  $('#compose').on('submit', handleComposeSubmit);
+  $("button").click(function(){
+    $(".new-tweet").slideToggle("slow", function (){});
+  });
 });
-
