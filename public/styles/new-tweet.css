@@ -11,6 +11,10 @@
   padding: 0.5em;
 }
 
+#invalidE {
+  color: red;
+  border: 4px red dotted;
+}
 .red {
   color: #f56a4e;
   font-weight: 700;

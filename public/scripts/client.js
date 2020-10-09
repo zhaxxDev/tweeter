@@ -34,9 +34,9 @@ function handleComposeSubmit(event) {
   var formDataStr = $(this).serialize();
   var textAreaContent = $('#tweet-text').val();
   if(textAreaContent === '') {
-    return alert('Please enter a text');
+    return $("#invalidE").slideToggle("slow", function (){});
   } else if (textAreaContent.length > 140) {
-    return alert("Tweet is too long");
+    return $("#invalidE").slideToggle("slow", function (){});
   } else {
     $.ajax({
       url: '/tweets',
@@ -119,6 +119,7 @@ function renderTweets(tweets) {
 
 $(document).ready(function() {
   $(".new-tweet").hide();
+  $("#invalidE").hide();
   loadTweets();
   console.log('loadtweets function invoked successfully');
   $('#compose').on('submit', handleComposeSubmit);
