@@ -69,7 +69,7 @@ function getTheCurrentTime(date) {
   var howLongAgoMinutes = (currentDate - date) / 1000 / 60;
   var howLongAgoHours = (currentDate - date) / 1000 / 60 / 60;
   if (howLongAgoMinutes < 1) {
-    return `${Math.floor(howLongAgoSeconds)} seconds ago`;
+    return `less than a minute ago`;
   } else if (howLongAgoMinutes > 1 && howLongAgoMinutes < 60) {
     return `${Math.floor(howLongAgoMinutes)} minutes ago`;
   } else if (howLongAgoMinutes > 60 && howLongAgoHours < 24) {
@@ -97,13 +97,18 @@ function createTweetElement (tweetObj) {
         <img src=${tweetObj.user.avatars}/>
         <p>${tweetObj.user.name}</p>
       </div>
-      <i>${tweetObj.user.handle}</i>
+      <i id="userHandle">${tweetObj.user.handle}</i>
     </header>
     <div class="tweetData">
       ${safeHTML}
     </div>
     <footer>  
       <p><i>${getTheCurrentTime(tweetObj.created_at)}</i></p>
+      <div id="icons">
+      <img src="/images/like.png"> 
+      <img src="/images/retweet.png"> 
+      <img src="/images/heart.png"> 
+      </div>
     </footer>
   `;
   $tweet = $tweet.append(html);

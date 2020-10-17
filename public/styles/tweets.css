@@ -16,7 +16,6 @@
 .tweet {
   border: solid 4px grey;
   width: 70%;
-  border-radius: 8px;
   margin-top: 30px;
   background-color: papayawhip;
 }
@@ -33,9 +32,34 @@
   display: flex;
 }
 
+#userHandle {
+  color: papayawhip;
+}
+
+.tweet:hover #userHandle {
+  color: grey;
+}
+
 .tweet footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-left: 10px;
   font-size: 80%;
+}
+
+#icons img{
+  margin-right: 8px;
+  color: papayawhip;
+}
+
+#icons img{
+  width: 20px;
+  visibility: hidden;
+}
+
+.tweet:hover #icons img{
+  visibility: visible;
 }
 
 #tweetText {
@@ -49,7 +73,7 @@
 }
 
 .tweet:hover {
-  border-radius: 5px;
+
   border-color: #000000;
   border-style: solid;
   border-width: 4px;
