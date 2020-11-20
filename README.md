@@ -15,3 +15,7 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+
+## Preview
+
+!["Preview](https://github.com/zhaxxDev/tweeter/blob/master/public/images/Screenshot%20from%202020-11-19%2016-41-10.png)
