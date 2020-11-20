@@ -8,6 +8,7 @@
   border-color: #bdbdbd;
   border-style: solid;
   border-width: 1px;
+  word-break: break-all;
   padding: 0.5em;
 }
 
